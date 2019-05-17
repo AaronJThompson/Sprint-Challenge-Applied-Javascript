@@ -10,6 +10,13 @@ class Carousel {
         this.leftButton = element.querySelector(".left-button");
         this.rightButton = element.querySelector(".right-button");
 
+        this.leftButton.addEventListener("click", () => {
+            this.carouselLeft();
+        })
+
+        this.rightButton.addEventListener("click", () => {
+            this.carouselRight();
+        })
     }
 
     carouselLeft() {
