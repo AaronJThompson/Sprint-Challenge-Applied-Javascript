@@ -45,26 +45,26 @@ class Carousel {
     }
 
     animateMove(from, to){
-        let carouselWidth = this.carousel.style.width;
+        let carouselWidth = this.carousel.clientWidth;
         let fromImage = this.images[from];
         let toImage = this.images[to];
         toImage.style.display = "block";
         if(from < to){
-            toImage.style.left = "100%";
-            TweenMax.to(toImage, .5, {left: 0});
-            TweenMax.to(fromImage, .5, {left: "-100%"});
+            toImage.style.left = `${carouselWidth}px`;
+            TweenMax.to(toImage, .5, {left: "0px"});
+            TweenMax.to(fromImage, .5, {left: `${0-carouselWidth}px`});
             setTimeout(() => {
                 fromImage.style.left = 0;
                 fromImage.style.display = "none";
-            })
+            }, 500);
         } else {
-            toImage.style.left = "-100%";
-            TweenMax.to(toImage, .5, {left: 0});
-            TweenMax.to(fromImage, .5, {left: "100%"});
+            toImage.style.left = `${0-carouselWidth}px`;
+            TweenMax.to(toImage, .5, {left: "0px"});
+            TweenMax.to(fromImage, .5, {left: `${carouselWidth}px`});
             setTimeout(() => {
                 fromImage.style.left = 0;
                 fromImage.style.display = "none";
-            })
+            }, 500);
         }
     }
 }
