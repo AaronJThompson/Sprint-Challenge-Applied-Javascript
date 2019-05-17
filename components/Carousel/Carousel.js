@@ -13,11 +13,11 @@ class Carousel {
     }
 
     carouselLeft() {
-            
+        this.moveImage(-1);
     }
 
     carouselRight() {
-            
+        this.moveImage(1);
     }
 
     moveImage(amount) {
