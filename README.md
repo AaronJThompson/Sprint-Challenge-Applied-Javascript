@@ -30,15 +30,30 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager
 
-1. What is the DOM?
+1. What is the DOM?  
 
-2. What is an event?
+A: DOM stands for Document Object Model. It is a tree-structure representation of a document, usually HTML. It allows scripts and the browser to access
+the document in a logical way and allows easy access and modification, moving from plain text to a data structure that can be traversed easily programmatically.  
 
-3. What is an event listener?
+2. What is an event?  
 
-4. Why would we convert a NodeList into an Array?
+A: An event is a response to an action performed on a web-page, from either the user or the browser itself. For example, when the user clicks on an element, an event is triggered in response by the browser so that actions can be taken in response. A browser event could be for example when the DOM is loaded. A 'DOMContentLoaded' event
+would be fired so that actions can be taken in response.  
 
-5. What is a component?
+3. What is an event listener?  
+
+A: An event listener is what allows the web-page and it's scripted to respond to events that occur on the webpage. It allows scripts to 'listen' for events so that when they occur,
+the script can respond and perform actions related to them. For example, a 'click' event could be fired by a button. A script could be listening to it and for example, show a menu or dialog box.  
+
+4. Why would we convert a NodeList into an Array?  
+
+A: NodeList is a browser and DOM object. An array is a javascript object. Although we can perform some javascript-like methods on a NodeList, it is up to the browser API on how to perform these for the most part.
+Converting NodeList's to an Array allows us to perform any javascript methods we like in a way that is (mostly) browser independent with predictable results cross-platform; allowing us full control of the elements it holds.  
+
+5. What is a component?  
+
+A: A component is a generalized term for an object we can create in javascript that represents a DOM element, either one we create using the object or one we select from the DOM. It allows us as developers
+to reuse methods and DOM elements for groups of DOM elements that are reused in the web-page. We can use it to programmatically create large parts of the DOM from data, making our page more dynamic and responsive to data.  
 
 ### Git Set up
 
