@@ -44,6 +44,10 @@ class Carousel {
 
         this.currentIndex = newIndex;
     }
+
+    animateMove(from, to){
+        
+    }
 }
 
 let carousel = document.querySelector(".carousel");
