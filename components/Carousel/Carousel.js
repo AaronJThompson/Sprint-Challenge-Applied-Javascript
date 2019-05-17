@@ -33,23 +33,25 @@ class Carousel {
         let imageCount = this.images.length;
         let indexDelta = this.currentIndex + amount;
         let newIndex = indexDelta;
+        let dir = amount;
         if(indexDelta < 0){
             newIndex = imageCount + indexDelta;
+
         } else if(indexDelta > (imageCount - 1)){
             newIndex = indexDelta - imageCount;
         }
         
-        this.animateMove(this.currentIndex, newIndex);
+        this.animateMove(this.currentIndex, newIndex, dir);
 
         this.currentIndex = newIndex;
     }
 
-    animateMove(from, to){
+    animateMove(from, to, dir){
         let carouselWidth = this.carousel.clientWidth;
         let fromImage = this.images[from];
         let toImage = this.images[to];
         toImage.style.display = "block";
-        if(from < to){
+        if(dir > 0){
             toImage.style.left = `${carouselWidth}px`;
             TweenMax.to(toImage, .5, {left: "0px"});
             TweenMax.to(fromImage, .5, {left: `${0-carouselWidth}px`});
