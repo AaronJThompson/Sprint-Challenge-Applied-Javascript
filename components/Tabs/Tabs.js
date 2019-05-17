@@ -59,6 +59,9 @@ class TabCard {
   constructor(cardElement){
     // Assign this.cardElement to the cardElement DOM reference
     this.cardElement = cardElement;
+    this.x = cardElement.offsetLeft;
+    this.y = cardElement.offsetTop;
+    this.transform = cardElement._gsTransform;
   }
   recordPos(){
     this.x = this.cardElement.offsetLeft;
@@ -67,11 +70,10 @@ class TabCard {
   selectCard(){
     // Update the style of this.cardElement to display = "flex"
     this.cardElement.style.display = "flex";
-    let x = this.cardElement.transform.x + this.x - this.cardElement.x;
-    let y = this.cardElement.transform.y + this.y - this.cardElement.y;
-    
+    let x = this.x - this.cardElement.offsetLeft;
+    let y = this.y - this.cardElement.offsetTop;
     // Tween to 0,0 to remove the transforms
-    TweenMax.fromTo(this.cardElement, duration, { x: x, y: y }, { x: 0, y: 0, ease: Power1.easeInOut }); 
+    TweenMax.fromTo(this.cardElement, .3, { x: x, y: y }, { x: 0, y: 0, ease: Power1.easeInOut }); 
   }
 
   animateMove(oldX, oldY, newX, newY) {
