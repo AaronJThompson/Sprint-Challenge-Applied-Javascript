@@ -32,7 +32,12 @@ class Carousel {
     moveImage(amount) {
         let imageCount = this.images.length;
         let indexDelta = this.currentIndex + amount;
-        let newIndex =  indexDelta < 0 ? imageCount + indexDelta : indexDelta;
+        let newIndex = indexDelta;
+        if(indexDelta < 0){
+            newIndex = imageCount + indexDelta;
+        } else if(indexDelta > (imageCount - 1)){
+            newIndex = indexDelta - imageCount;
+        }
         
         this.images[this.currentIndex].style.display = "none";
         this.images[newIndex].style.display = "block";
