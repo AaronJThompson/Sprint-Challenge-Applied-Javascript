@@ -54,6 +54,7 @@ body {
   position: fixed;
   height: 44px;
   background-color: #333;
+  z-index: 1000;
 }
 .top-bar .container {
   width: 100%;
@@ -292,15 +293,16 @@ body {
   top: 50%;
   left: 25px;
   transform: translate(0, -50%);
-  z-index: 2;
+  z-index: 0;
 }
 .carousel .right-button {
   top: 50%;
   right: 25px;
   transform: translate(0, -50%);
-  z-index: 2;
+  z-index: 0;
 }
 .carousel img {
+  z-index: -2;
   position: absolute;
   width: 100%;
   display: none;
