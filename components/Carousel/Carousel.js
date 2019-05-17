@@ -39,14 +39,33 @@ class Carousel {
             newIndex = indexDelta - imageCount;
         }
         
-        this.images[this.currentIndex].style.display = "none";
-        this.images[newIndex].style.display = "block";
+        this.animateMove(this.currentIndex, newIndex);
 
         this.currentIndex = newIndex;
     }
 
     animateMove(from, to){
-        
+        let carouselWidth = this.carousel.style.width;
+        let fromImage = this.images[from];
+        let toImage = this.images[to];
+        toImage.style.display = "block";
+        if(from < to){
+            toImage.style.left = "100%";
+            TweenMax.to(toImage, .5, {left: 0});
+            TweenMax.to(fromImage, .5, {left: "-100%"});
+            setTimeout(() => {
+                fromImage.style.left = 0;
+                fromImage.style.display = "none";
+            })
+        } else {
+            toImage.style.left = "-100%";
+            TweenMax.to(toImage, .5, {left: 0});
+            TweenMax.to(fromImage, .5, {left: "100%"});
+            setTimeout(() => {
+                fromImage.style.left = 0;
+                fromImage.style.display = "none";
+            })
+        }
     }
 }
 
