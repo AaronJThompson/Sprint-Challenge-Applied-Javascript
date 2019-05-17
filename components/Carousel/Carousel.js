@@ -5,7 +5,7 @@ class Carousel {
         this.images = element.querySelectorAll("img");
         this.images = Array.from(this.images);
 
-        this.currentImage = 0;
+        this.currentIndex = 0;
 
         this.leftButton = element.querySelector(".left-button");
         this.rightButton = element.querySelector(".right-button");
@@ -21,7 +21,12 @@ class Carousel {
     }
 
     moveImage(amount) {
+        let imageCount = this.images.length;
+        let indexDelta = this.currentIndex + amount;
+        let newIndex =  indexDelta < 0 ? imageCount + indexDelta : indexDelta;
         
+        this.images[this.currentIndex].style.display = "none";
+        this.images[newIndex].style.display = "block";
     }
 }
 
