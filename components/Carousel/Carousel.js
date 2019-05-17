@@ -3,9 +3,25 @@ class Carousel {
         this.carousel = element;
 
         this.images = element.querySelectorAll("img");
+        this.images = Array.from(this.images);
+
+        this.currentImage = 0;
 
         this.leftButton = element.querySelector(".left-button");
         this.rightButton = element.querySelector(".right-button");
+
+    }
+
+    carouselLeft() {
+            
+    }
+
+    carouselRight() {
+            
+    }
+
+    moveImage(amount) {
+        
     }
 }
 
