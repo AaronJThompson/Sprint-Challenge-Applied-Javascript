@@ -21,6 +21,8 @@ class Carousel {
         this.images[this.currentIndex].style.display = "block";
 
         this.animationMoving = false;
+
+        this.animationSpeed = .5;
     }
 
     carouselLeft() {
@@ -58,22 +60,22 @@ class Carousel {
         toImage.style.display = "block";
         if(dir > 0){
             toImage.style.left = `${carouselWidth}px`;
-            TweenMax.to(toImage, .5, {left: "0px"});
-            TweenMax.to(fromImage, .5, {left: `${0-carouselWidth}px`});
+            TweenMax.to(toImage, this.animationSpeed, {left: "0px"});
+            TweenMax.to(fromImage, this.animationSpeed, {left: `${0-carouselWidth}px`});
             setTimeout(() => {
                 fromImage.style.left = 0;
                 fromImage.style.display = "none";
                 this.animationMoving = false;
-            }, 500);
+            }, this.animationSpeed * 1000);
         } else {
             toImage.style.left = `${0-carouselWidth}px`;
-            TweenMax.to(toImage, .5, {left: "0px"});
-            TweenMax.to(fromImage, .5, {left: `${carouselWidth}px`});
+            TweenMax.to(toImage, this.animationSpeed, {left: "0px"});
+            TweenMax.to(fromImage, this.animationSpeed, {left: `${carouselWidth}px`});
             setTimeout(() => {
                 fromImage.style.left = 0;
                 fromImage.style.display = "none";
                 this.animationMoving = false;
-            }, 500);
+            }, this.animationSpeed * 1000);
         }
     }
 }
