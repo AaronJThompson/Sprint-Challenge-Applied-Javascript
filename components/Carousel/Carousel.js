@@ -19,14 +19,18 @@ class Carousel {
         })
 
         this.images[this.currentIndex].style.display = "block";
+
+        this.animationMoving = false;
     }
 
     carouselLeft() {
-        this.moveImage(-1);
+        if (!this.animationMoving)
+            this.moveImage(-1);
     }
 
     carouselRight() {
-        this.moveImage(1);
+        if (!this.animationMoving)
+            this.moveImage(1);
     }
 
     moveImage(amount) {
@@ -47,6 +51,7 @@ class Carousel {
     }
 
     animateMove(from, to, dir){
+        this.animationMoving = true;
         let carouselWidth = this.carousel.clientWidth;
         let fromImage = this.images[from];
         let toImage = this.images[to];
@@ -58,6 +63,7 @@ class Carousel {
             setTimeout(() => {
                 fromImage.style.left = 0;
                 fromImage.style.display = "none";
+                this.animationMoving = false;
             }, 500);
         } else {
             toImage.style.left = `${0-carouselWidth}px`;
@@ -66,6 +72,7 @@ class Carousel {
             setTimeout(() => {
                 fromImage.style.left = 0;
                 fromImage.style.display = "none";
+                this.animationMoving = false;
             }, 500);
         }
     }
